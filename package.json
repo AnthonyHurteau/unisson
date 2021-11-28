@@ -1,0 +1,17 @@
+{
+  "name": "unisson",
+  "version": "1.0.0",
+  "description": "Lightweight JSX framework built on native modern browser features",
+  "keywords": [
+    "js",
+    "framework",
+    "native",
+    "lightweight",
+    "hmtl",
+    "css",
+    "jsx",
+    "webcomponents"
+  ],
+  "author": "Anthony Hurteau",
+  "license": "MIT"
+}
