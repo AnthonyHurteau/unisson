@@ -1,3 +1,10 @@
+"use strict";
+
+export default {
+  createElement,
+  createFragment,
+};
+
 export const createElement = (tag, props, ...children) => {
   if (typeof tag === "function") return tag(props, ...children);
   const element = document.createElement(tag);
@@ -16,8 +23,10 @@ export const createElement = (tag, props, ...children) => {
 };
 
 const appendChild = (parent, child) => {
-  if (Array.isArray(child)) child.forEach((nestedChild) => appendChild(parent, nestedChild));
-  else parent.appendChild(child.nodeType ? child : document.createTextNode(child));
+  if (Array.isArray(child))
+    child.forEach((nestedChild) => appendChild(parent, nestedChild));
+  else
+    parent.appendChild(child.nodeType ? child : document.createTextNode(child));
 };
 
 export const createFragment = (props, ...children) => {

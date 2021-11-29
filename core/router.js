@@ -1,16 +1,31 @@
+"use strict";
+
 import { domLoaded } from "./helpers";
 
-export async function Router(outletName, routes) {
+export default {
+  router,
+  Route,
+};
+
+export async function router(outletName, routes) {
   await domLoaded;
 
   if (domLoaded) {
-    navigate(window.location.pathname + window.location.hash, routes, document.getElementById(outletName));
+    navigate(
+      window.location.pathname + window.location.hash,
+      routes,
+      document.getElementById(outletName)
+    );
     document.querySelectorAll("[route]").forEach((route) =>
       route.addEventListener(
         "click",
         (e) => {
           e.preventDefault();
-          navigate(e.target.getAttribute("route"), routes, document.getElementById(outletName));
+          navigate(
+            e.target.getAttribute("route"),
+            routes,
+            document.getElementById(outletName)
+          );
         },
         false
       )
@@ -23,7 +38,9 @@ function navigate(path, routes, renderNode) {
 
   if (renderNode) {
     if (!route) {
-      const defaultRoute = routes.find((r) => r.isDefaultRoute) ? routes.find((r) => r.isDefaultRoute) : routes[0];
+      const defaultRoute = routes.find((r) => r.isDefaultRoute)
+        ? routes.find((r) => r.isDefaultRoute)
+        : routes[0];
 
       if (defaultRoute) {
         render(renderNode, defaultRoute);
@@ -42,7 +59,7 @@ function render(renderNode, route, path) {
   while (renderNode.firstChild) {
     renderNode.removeChild(renderNode.firstChild);
   }
-  const element = document.createElement(route.element);
+  const element = document.createElement(route.elementName);
   renderNode.appendChild(element);
   route.rendered(path, element);
 }
@@ -81,8 +98,8 @@ function match(route, requestPath) {
 }
 
 export class Route {
-  constructor(element, path, isDefaultRoute = false) {
-    this.element = element;
+  constructor(elementName, path, isDefaultRoute = false) {
+    this.elementName = elementName;
     this.path = path;
     this.isDefaultRoute = isDefaultRoute;
   }
