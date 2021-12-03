@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 export const domLoaded = new Promise((resolve) => {
   document.addEventListener("DOMContentLoaded", () => {

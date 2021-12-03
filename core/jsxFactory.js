@@ -23,10 +23,11 @@ export const createElement = (tag, props, ...children) => {
 };
 
 const appendChild = (parent, child) => {
-  if (Array.isArray(child))
+  if (Array.isArray(child)) {
     child.forEach((nestedChild) => appendChild(parent, nestedChild));
-  else
+  } else {
     parent.appendChild(child.nodeType ? child : document.createTextNode(child));
+  }
 };
 
 export const createFragment = (props, ...children) => {
