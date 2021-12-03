@@ -1,7 +1,7 @@
 # unisson
 
 <p align="center" width="100%">
- <img src="https://raw.githubusercontent.com/AnthonyHurteau/unisson/main/assets/unisson192.png">
+ <img src="https://raw.githubusercontent.com/AnthonyHurteau/unisson/main/src/assets/unisson192.png">
  <br/>
  Lightweight JSX framework built on native modern browser features
 </p>
