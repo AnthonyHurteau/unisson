@@ -1,31 +1,23 @@
 "use strict";
 
-import { domLoaded } from "./helpers";
+import { domLoaded } from "../helpers/helpers";
 
 export default {
-  router,
+  Router,
   Route,
 };
 
-export async function router(outletName, routes) {
+export async function Router(outletName, routes) {
   await domLoaded;
 
   if (domLoaded) {
-    navigate(
-      window.location.pathname + window.location.hash,
-      routes,
-      document.getElementById(outletName)
-    );
+    navigate(window.location.pathname + window.location.hash, routes, document.getElementById(outletName));
     document.querySelectorAll("[route]").forEach((route) =>
       route.addEventListener(
         "click",
         (e) => {
           e.preventDefault();
-          navigate(
-            e.target.getAttribute("route"),
-            routes,
-            document.getElementById(outletName)
-          );
+          navigate(e.target.getAttribute("route"), routes, document.getElementById(outletName));
         },
         false
       )
@@ -38,9 +30,7 @@ function navigate(path, routes, renderNode) {
 
   if (renderNode) {
     if (!route) {
-      const defaultRoute = routes.find((r) => r.isDefaultRoute)
-        ? routes.find((r) => r.isDefaultRoute)
-        : routes[0];
+      const defaultRoute = routes.find((r) => r.isDefaultRoute) ? routes.find((r) => r.isDefaultRoute) : routes[0];
 
       if (defaultRoute) {
         render(renderNode, defaultRoute);

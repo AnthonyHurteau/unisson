@@ -1,4 +1,4 @@
-export default class UnissonComponent extends HTMLElement {
+export class UnissonComponent extends HTMLElement {
   constructor() {
     super();
   }

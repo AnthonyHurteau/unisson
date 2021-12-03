@@ -1,8 +1,8 @@
 "use strict";
 
-import { domLoaded } from "./helpers";
+import { domLoaded } from "../helpers/helpers";
 
-export default class AsyncData extends EventTarget {
+export class AsyncData extends EventTarget {
   constructor(htmlmElement, init, uId) {
     super();
     this.value = init || "";
