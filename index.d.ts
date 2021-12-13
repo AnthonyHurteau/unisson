@@ -2,13 +2,15 @@ export declare class AsyncData {
   uId: string;
   constructor(
     htmlmElement?: HTMLElement | null,
-    init?: string | number | boolean | Node | HTMLElement | null,
+    init?: string | number | boolean | Node | HTMLElement | object | [] | null,
     uId?: string | null
   );
-  getValue(): string | number | boolean | Node | null;
+  getValue(): string | number | boolean | Node | HTMLElement | object | [] | null;
   setValue(value: string | number | boolean | null): void;
   setNode(node: Node): void;
   setAttribute(name: string, value: string | number | boolean | null): void;
+  setObject(object: object): void;
+  setArray(array: []): void;
 }
 
 declare namespace httpClient {

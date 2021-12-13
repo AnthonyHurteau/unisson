@@ -31,6 +31,16 @@ export class AsyncData extends EventTarget {
     this.value = value;
     render({ name, value, type: renderType.attribute, ...this.params });
   }
+
+  setObject(obj) {
+    !this.value ? {} : this.value;
+    this.value = obj;
+  }
+
+  setArray(array) {
+    !this.value ? {} : this.value;
+    this.value = array;
+  }
 }
 
 const renderType = { content: 1, attribute: 2 };
