@@ -25,21 +25,25 @@ export class AsyncData extends EventTarget {
   setNode(node) {
     this.value = node;
     render({ node, type: renderType.content, ...this.params });
+    this.dispatchEvent(new Event(this.uId));
   }
 
   setAttribute(name, value) {
     this.value = value;
     render({ name, value, type: renderType.attribute, ...this.params });
+    this.dispatchEvent(new Event(this.uId));
   }
 
   setObject(obj) {
     !this.value ? {} : this.value;
     this.value = obj;
+    this.dispatchEvent(new Event(this.uId));
   }
 
   setArray(array) {
     !this.value ? {} : this.value;
     this.value = array;
+    this.dispatchEvent(new Event(this.uId));
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "unisson",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "description": "Lightweight JSX framework built on native modern browser features",
   "repository": "AnthonyHurteau/unisson",
